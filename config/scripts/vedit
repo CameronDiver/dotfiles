@@ -1,0 +1,23 @@
+#!/usr/bin/zsh
+
+editor="nvim"
+
+if [ $# -eq 0 ]; then
+	echo "vim = nvim config; i3 = i3 config; zsh = zsh config";
+	exit;
+fi
+
+if [ $1 == "vim" ]; then
+	$editor ~/.config/nvim/init.vim;
+fi
+
+if [ $1 == "i3" ]; then
+	$editor ~/.config/i3/config;
+fi
+
+if [ $1 == "zsh" ]; then
+	$editor ~/.zshrc;
+fi
+
+
+
