@@ -1,0 +1,32 @@
+- clean: ['~']
+
+- link:
+    ~/.profile: profile
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
+    ~/.bash_logout: bash_logout
+    ~/.gitconfig: gitconfig
+    ~/.ssh/config:
+        path: ssh/config
+        create: true
+    ~/.vimrc: vimrc
+    ~/.zprofile: zprofile
+    ~/.zshenv: zshenv
+    ~/.zshrc: zshrc
+    ~/.Xmodmap: Xmodmap
+    ~/.Xresources: Xresources
+    ~/.xinitrc: xinitrc
+    ~/.config/i3:
+        path: config/i3/
+        create: true
+    ~/.config/i3blocks:
+        path: config/i3blocks/
+        create: true
+    ~/.config/nvim/init.vim:
+        path: config/nvim/init.vim
+        create: true
+    ~/.config/termite/config:
+        path: config/termite/config
+        create: true
+
+

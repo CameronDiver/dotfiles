@@ -1,0 +1,148 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "none",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 554,
+       "width": 974,
+       "x": 0,
+       "y": 0
+    },
+    "name": "cameron@CameronThinkpad: ~",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Gnome\\-terminal$",
+       "instance": "^gnome\\-terminal\\-server$",
+       "title": "^cameron\\@CameronThinkpad\\:\\ \\~$",
+       "transient_for": "^$",
+       "window_role": "^gnome\\-terminal\\-window\\-af4723ae\\-fdf6\\-45c5\\-8fb3\\-84e19d7e1f17$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // splitv split container with 2 children
+    "border": "none",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "none",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 554,
+               "width": 974,
+               "x": 0,
+               "y": 0
+            },
+            "name": "cameron@CameronThinkpad: ~",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^Gnome\\-terminal$",
+               "instance": "^gnome\\-terminal\\-server$",
+               "title": "^cameron\\@CameronThinkpad\\:\\ \\~$",
+               "transient_for": "^$",
+               "window_role": "^gnome\\-terminal\\-window\\-a84f68e1\\-92af\\-43be\\-bb65\\-3324163d2540$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            // splitv split container with 2 children
+            "border": "none",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "none",
+                    "current_border_width": 0,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 554,
+                       "width": 974,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "cameron@CameronThinkpad: ~",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       "class": "^Gnome\\-terminal$",
+                       "instance": "^gnome\\-terminal\\-server$",
+                       "title": "^cameron\\@CameronThinkpad\\:\\ \\~$",
+                       "transient_for": "^$",
+                       "window_role": "^gnome\\-terminal\\-window\\-809cf0cc\\-eaac\\-4b73\\-a33e\\-b13b3c7f361b$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    // splith split container with 2 children
+                    "border": "none",
+                    "floating": "auto_off",
+                    "layout": "splith",
+                    "percent": 0.5,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "none",
+                            "current_border_width": 0,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 554,
+                               "width": 974,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "name": "cameron@CameronThinkpad: ~",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                               "class": "^Gnome\\-terminal$",
+                               "instance": "^gnome\\-terminal\\-server$",
+                               "title": "^cameron\\@CameronThinkpad\\:\\ \\~$",
+                               "transient_for": "^$",
+                               "window_role": "^gnome\\-terminal\\-window\\-02724cb0\\-9dc7\\-458c\\-a137\\-f4164ae4a650$"
+                               }
+                            ],
+                            "type": "con"
+                        },
+                        {
+                            "border": "none",
+                            "current_border_width": 0,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 554,
+                               "width": 974,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "name": "cameron@CameronThinkpad: ~",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                               "class": "^Gnome\\-terminal$",
+                               "instance": "^gnome\\-terminal\\-server$",
+                               "title": "^cameron\\@CameronThinkpad\\:\\ \\~$",
+                               "transient_for": "^$",
+                               "window_role": "^gnome\\-terminal\\-window\\-c31357f1\\-0ea3\\-4ebe\\-a33d\\-50b42d259dc9$"
+                               }
+                            ],
+                            "type": "con"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
