@@ -31,5 +31,7 @@
     ~/.config/scripts:
         path: config/scripts/
         create: true
+    ~/.config/polybar/config: config/polybar/config
+    ~/.conkyrc: conkyrc
 
 

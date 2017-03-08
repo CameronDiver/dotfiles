@@ -1,6 +1,7 @@
 
 [options]
-font = Hack 14
+#font = Hack 14
+font = fira mono 14
 mouse_autohide = true
 clickable_url = true
 allow_bold = true

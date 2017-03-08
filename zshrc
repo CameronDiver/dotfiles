@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ssh-agent archlinux docker zsh-nvm npm git git-extras pyenv sudo systemd colored-man-pages common-aliases wd extract)
+plugins=(ssh-agent archlinux docker zsh-nvm npm git git-extras pyenv sudo systemd colored-man-pages common-aliases wd extract fancy-ctrl-z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,6 +90,9 @@ alias bim="echo 'I think you meant vim...\n';vim"
 alias v="vim";
 alias vim="nvim";
 
+# Get rid of GTK errors in some apps
+alias gitg="gitg 2>/dev/null"
+
 export VIM_CONFIG='~/.config/nvim/init.vim'
 alias vedit="~/.config/scripts/vedit"
 #"vim $VIM_CONFIG"
@@ -97,12 +100,16 @@ alias vedit="~/.config/scripts/vedit"
 
 alias gprm='git push resin master'
 
+# Tree for inside of a node project
+alias node-tree='tree -I node_modules'
+
 export TERM='xterm-256color'
 alias subl='subl3'
 export PATH="$PATH:`dirname $(nvm which $(nvm current))`"
 export PATH="$PATH:/opt/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/bin"
 export PATH="$PATH:/home/cameron/.cabal/bin/"
+export PATH="$PATH:/home/cameron/.local/bin/"
 
-PS1="[%T] $PS1"
+PS1="%(1j.[%j] .)[%T] $PS1"
 
 stty -ixon

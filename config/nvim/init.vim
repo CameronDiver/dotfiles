@@ -1,5 +1,5 @@
-
-" Install vim-plug
+"
+"Install vim-plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -11,6 +11,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Theme
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
+"Plug 'danilo-augusto/vim-afterglow'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -21,12 +22,14 @@ Plug 'lukerandall/haskellmode-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
-Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
+" Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
+" Plug 'Quramy/tsuquyomi'
 
 " Completion
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'carlitux/deoplete-ternjs'
+Plug 'mhartington/nvim-typescript'
 Plug 'sebastianmarkow/deoplete-rust'
 
 " Documentation
@@ -34,11 +37,11 @@ Plug 'heavenshell/vim-jsdoc'
 
 " Linting
 Plug 'neomake/neomake'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 
 " Git
 Plug 'tpope/vim-git'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " Commenting
@@ -56,11 +59,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'suan/vim-instant-markdown'
 
 " Other
-Plug 'ntpeters/vim-better-whitespace'
+" Plug 'ntpeters/vim-better-whitespace'
 Plug 'matze/vim-move'
 Plug 'Yggdroot/indentline'
-Plug 'tpope/vim-sleuth'
-Plug 'Shougo/vimproc.vim'
+"Plug 'tpope/vim-sleuth'
+" Plug 'Shougo/vimproc.vim'
+" Plug 'conormcd/matchindent.vim'
+Plug 'CameronDiver/matchindent.vim', { 'branch': 'allow-tabstop-config' }
 
 " Done with plugins
 call plug#end()
@@ -69,6 +74,8 @@ set backupdir=~/.config/nvim/backup//,/tmp
 set directory=~/.config/nvim/swap//,/tmp
 
 set wildignore+=*.o
+
+let g:indentLine_setConceal = 0
 
 " Key mapping
 " General
@@ -115,6 +122,10 @@ nmap <BS> i
 
 nmap <cr> a<cr>
 
+" jj as Esc
+imap jj <Esc>
+
+
 " Commenting
 nmap <Leader>/ <Plug>NERDCommenterToggle
 imap <C-/> <esc><Plug>NERDCommenterToggle<cr>ki
@@ -124,16 +135,30 @@ vmap <Leader>/ <Plug>NERDCommenterToggle
 nnoremap <Leader>d :JsDoc<CR>
 
 " Project view
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " Reload File
 nnoremap <Leader>r :e<CR>
+
+" Wrapped line handling
+imap <silent> <Up> gk
+imap <silent> <Up> <C-o>gk
+map <silent> <Down> gj
+imap <silent> <Down> <C-o>gj
+map <silent> <home> g<home>
+imap <silent> <home> <C-o>g<home>
+map <silent> <End> g<End>
+imap <silent> <End> <C-o>g<End>
+
+nmap L $
+nmap H ^
 
 " Theme
 set background=dark
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='neutral'
 let g:airline_theme='gruvbox'
+"let g:airline_theme='afterglow'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=2
 let g:airline#extensions#tabline#fnamemod=':t'
@@ -147,6 +172,9 @@ let g:airline_left_alt_sep='|'
 let g:airline_right_sep=' '
 let g:airline_right_alt_sep='|'
 colorscheme gruvbox
+"colorscheme afterglow
+
+let g:matchindent_tabsize=2
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
@@ -158,7 +186,7 @@ let g:neomake_cpp_clang_maker = {
 	\ 'args': ['-Wall', '-Wextra', 'std=c++11', '-Weverything', '-pedantic', '-Wno-sign-conversion']
 	\}
 let g:neomake_open_list=0
-autocmd! BufWritePost,BufEnter * Neomake
+autocmd! BufWritePost * Neomake
 
 " Stop tab switching being so fucking slow
 let g:gitgutter_eager=0
@@ -178,7 +206,8 @@ let g:jsdoc_allow_input_prompt=1
 " let g:jsdoc_input_description=1
 
 " Other
-"autocmd BufWritePre * StripWhitespace
+" autocmd BufWritePre * StripWhitespace
+autocmd BufWritePre * :%s/\s\+$//e
 let g:indentLine_setColors=0
 "autocmd BufReadPost * :DetectIndent
 
@@ -197,6 +226,8 @@ set list
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.md setlocal spell
 au BufNewFile,BufRead Dockerfile.template set filetype=dockerfile
+
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
 " General
 set whichwrap+=<,>,h,l,[,]  " Move from one line to the next
@@ -221,6 +252,8 @@ set magic		    " Use 'magic' patterns (extended regular expressions).
 set undofile		    " Persistant undo
 set hidden		    " Enable hidden buffers
 set noshowmode		    " Turn off silly status line
+set mouse=
+set relativenumber
 
 " Tabs instead of spaces
 set softtabstop=2
@@ -242,8 +275,14 @@ let g:haddock_browser="/usr/bin/firefox"
 au FileType haskell call Indent_2_spaces()
 
 "autocmd BufWritePost *.hs call GhcModCheck()
-au BufWritePost * call SyntasticCheck()
+" au BufWritePost * call SyntasticCheck()
 "au FileType *.cabal call Indent_2_spaces()
 au BufNewFile,BufRead *.do call Indent_2_spaces()
 
 set rtp+=~/.local/share/nvim/plugged/typescript-tools.vim/
+
+highlight ColorColumn ctermbg=magenta
+" set colorcolumn=81
+call matchadd('ColorColumn', '\%81v', 100)
+
+set tabstop=2

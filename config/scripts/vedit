@@ -3,7 +3,7 @@
 editor="nvim"
 
 if [ $# -eq 0 ]; then
-	echo "vim = nvim config; i3 = i3 config; zsh = zsh config";
+	echo "vim = nvim config; i3 = i3 config; zsh = zsh config; polybar = polybar config;";
 	exit;
 fi
 
@@ -17,6 +17,10 @@ fi
 
 if [ $1 == "zsh" ]; then
 	$editor ~/.zshrc;
+fi
+
+if [ $1 == "polybar" ]; then
+	$editor ~/.config/polybar/config;
 fi
 
 
