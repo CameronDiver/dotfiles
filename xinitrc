@@ -69,6 +69,6 @@ feh --bg-fill ~/Dropbox/wallpapers/woods.jpg
 # redshift
 redshift &
 #xcompmgr -c &
-compton -b -c &
+# compton -b -c &
 
 exec i3

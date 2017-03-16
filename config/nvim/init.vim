@@ -16,27 +16,32 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Language support
-Plug 'itchyny/vim-haskell-indent'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'lukerandall/haskellmode-vim'
-Plug 'rust-lang/rust.vim'
+Plug 'itchyny/vim-haskell-indent', { 'for': 'haskell' }
+" Plug 'eagletmt/ghcmod-vim'
+Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
+" Plug 'rust-lang/rust.vim'
 Plug 'kchmck/vim-coffee-script'
+" Typescript support
 Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang --omnisharp-completer' }
+
 " Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
 " Plug 'Quramy/tsuquyomi'
 
 " Completion
-" Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'carlitux/deoplete-ternjs'
-Plug 'mhartington/nvim-typescript'
-Plug 'sebastianmarkow/deoplete-rust'
+Plug 'ervandew/supertab'
+" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+" Plug 'carlitux/deoplete-ternjs'
+" Plug 'mhartington/nvim-typescript'
+" Plug 'sebastianmarkow/deoplete-rust'
 
 " Documentation
-Plug 'heavenshell/vim-jsdoc'
+" Plug 'heavenshell/vim-jsdoc'
 
 " Linting
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
 " Plug 'vim-syntastic/syntastic'
 
 " Git
@@ -48,8 +53,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 
 " Project view
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdtree-git-plugin'
+" Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree-git-plugin'
 
 " Fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
@@ -65,7 +70,8 @@ Plug 'Yggdroot/indentline'
 "Plug 'tpope/vim-sleuth'
 " Plug 'Shougo/vimproc.vim'
 " Plug 'conormcd/matchindent.vim'
-Plug 'CameronDiver/matchindent.vim', { 'branch': 'allow-tabstop-config' }
+" Plug 'CameronDiver/matchindent.vim'
+", { 'branch': 'allow-tabstop-config' }
 
 " Done with plugins
 call plug#end()
@@ -80,7 +86,6 @@ let g:indentLine_setConceal = 0
 " Key mapping
 " General
 let mapleader = "\<Space>"
-nnoremap ; :
 nnoremap <cr> :nohlsearch<cr><cr>
 
 " Save
@@ -186,7 +191,7 @@ let g:neomake_cpp_clang_maker = {
 	\ 'args': ['-Wall', '-Wextra', 'std=c++11', '-Weverything', '-pedantic', '-Wno-sign-conversion']
 	\}
 let g:neomake_open_list=0
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 
 " Stop tab switching being so fucking slow
 let g:gitgutter_eager=0
@@ -224,10 +229,10 @@ set list
 " File types
 " Set up highlighting and spell-checking for markdown files
 au BufNewFile,BufRead *.md set filetype=markdown
-au BufNewFile,BufRead *.md setlocal spell
 au BufNewFile,BufRead Dockerfile.template set filetype=dockerfile
 
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+autocmd FileType markdown set tw=79 | set fo+=t | setlocal spell
 
 " General
 set whichwrap+=<,>,h,l,[,]  " Move from one line to the next
@@ -283,6 +288,15 @@ set rtp+=~/.local/share/nvim/plugged/typescript-tools.vim/
 
 highlight ColorColumn ctermbg=magenta
 " set colorcolumn=81
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%120v', 100)
 
 set tabstop=2
+
+if !(exists("g:ycm_semantic_triggers"))
+	let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+let g:tsuquyomi_completion_detail = 1
+
+set foldmethod=indent
+" set foldmethod=syntax
