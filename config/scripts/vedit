@@ -23,5 +23,7 @@ if [ $1 == "polybar" ]; then
 	$editor ~/.config/polybar/config;
 fi
 
-
+if [ $1 == "termite" ]; then
+	$editor ~/.config/termite/config
+fi
 

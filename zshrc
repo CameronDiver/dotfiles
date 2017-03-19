@@ -103,6 +103,9 @@ alias gprm='git push resin master'
 # Tree for inside of a node project
 alias node-tree='tree -I node_modules'
 
+alias rm='echo "You should be using trash instead..."; false'
+alias trash='trash-put'
+
 export TERM='xterm-256color'
 alias subl='subl3'
 export PATH="$PATH:`dirname $(nvm which $(nvm current))`"
@@ -113,3 +116,7 @@ export PATH="$PATH:/home/cameron/.local/bin/"
 PS1="%(1j.[%j] .)[%T] $PS1"
 
 stty -ixon
+
+# Enable base16 shell
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

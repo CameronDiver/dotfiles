@@ -1,19 +1,32 @@
-"
 "Install vim-plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 " Specify a directory for plugins
 call plug#begin('~/.local/share/nvim/plugged')
+
+let termguicolors=1
 
 " Theme
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
+" Plug 'vim-scripts/Guardian'
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
+" Tomorrow themes installed manually
+" Plug 'chriskempson/tomorrow-theme'
 "Plug 'danilo-augusto/vim-afterglow'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Plug 'squarefrog/tomorrow-night.vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'Soares/base16.nvim'
+Plug 'trusktr/seti.vim'
 
 " Language support
 Plug 'itchyny/vim-haskell-indent', { 'for': 'haskell' }
@@ -72,6 +85,8 @@ Plug 'Yggdroot/indentline'
 " Plug 'conormcd/matchindent.vim'
 " Plug 'CameronDiver/matchindent.vim'
 ", { 'branch': 'allow-tabstop-config' }
+
+Plug '~/development/matchindent.vim'
 
 " Done with plugins
 call plug#end()
@@ -161,8 +176,10 @@ nmap H ^
 " Theme
 set background=dark
 let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark='neutral'
+" let g:gruvbox_contrast_dark='neutral'
 let g:airline_theme='gruvbox'
+" let g:airline_theme='tomorrow'
+
 "let g:airline_theme='afterglow'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=2
@@ -177,7 +194,11 @@ let g:airline_left_alt_sep='|'
 let g:airline_right_sep=' '
 let g:airline_right_alt_sep='|'
 colorscheme gruvbox
+" let base16colorspace=256
+" colorscheme monokai
 "colorscheme afterglow
+" colorscheme new-railscasts
+" colorscheme seti
 
 let g:matchindent_tabsize=2
 
