@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+function showHelp {
+	echo "Usage: rgrep <commmand> [with] [args] <search term>"
+}
+
+command=""
+search=""
+while [[ $# -gt 0 ]]
+do
+	command="${command} ${search}"
+	search="$1"
+	shift
+done
+
+if [[ $DEBUG == "1" ]]; then
+	echo "Command: $command"
+	echo "Search: $search"
+fi
+
+if [ -z "$search" ]; then
+	showHelp
+	exit
+fi
+
+if [[ "$command" == " " ]]
+then
+	showHelp
+	exit
+fi
+
+eval "$command | grep --color \"$search\""

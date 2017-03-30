@@ -202,6 +202,11 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
+[module/pkgupdates]
+type=custom/script
+exec = checkupdates | wc -l
+interval = 43200
+
 [module/cpu]
 type = internal/cpu
 interval = 2

@@ -106,12 +106,17 @@ alias node-tree='tree -I node_modules'
 alias rm='echo "You should be using trash instead..."; false'
 alias trash='trash-put'
 
+alias vu='vagrant up'
+alias vssh='vagrant ssh'
+alias vh='vagrant halt'
+
 export TERM='xterm-256color'
 alias subl='subl3'
 export PATH="$PATH:`dirname $(nvm which $(nvm current))`"
 export PATH="$PATH:/opt/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/bin"
 export PATH="$PATH:/home/cameron/.cabal/bin/"
 export PATH="$PATH:/home/cameron/.local/bin/"
+export PATH="$PATH:/home/cameron/.config/scripts/"
 
 PS1="%(1j.[%j] .)[%T] $PS1"
 

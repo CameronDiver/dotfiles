@@ -56,8 +56,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec gnome-terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec gnome-terminal
+# bindsym $mod+Return exec termite
 
 # Open a browser
 bindsym $mod+Shift+b exec $Browser
