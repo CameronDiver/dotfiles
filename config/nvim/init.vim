@@ -91,3 +91,5 @@ set background=dark
 " colorscheme flatlandia
 colorscheme flatlandia
 let g:airline_theme='base16_default'
+
+set foldlevelstart=99

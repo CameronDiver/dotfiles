@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+MONITOR=HDMI-1 polybar default 2> /dev/null &
+MONITOR=HDMI-2 polybar default 2> /dev/null &
+polybar default 2> /dev/null &

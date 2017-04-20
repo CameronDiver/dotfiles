@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh resin -o Hostname=$1.vpn

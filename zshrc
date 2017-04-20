@@ -98,17 +98,17 @@ alias vedit="~/.config/scripts/vedit"
 #"vim $VIM_CONFIG"
 #source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
-alias gprm='git push resin master'
-
 # Tree for inside of a node project
 alias node-tree='tree -I node_modules'
 
-alias rm='echo "You should be using trash instead..."; false'
 alias trash='trash-put'
 
 alias vu='vagrant up'
 alias vssh='vagrant ssh'
 alias vh='vagrant halt'
+
+# resin specific
+alias gprm='git push resin master'
 
 export TERM='xterm-256color'
 alias subl='subl3'
@@ -118,6 +118,9 @@ export PATH="$PATH:/home/cameron/.cabal/bin/"
 export PATH="$PATH:/home/cameron/.local/bin/"
 export PATH="$PATH:/home/cameron/.config/scripts/"
 export PATH="$PATH:/home/cameron/.gem/ruby/2.4.0/bin"
+
+# Use clang
+export CXX="/bin/clang++"
 
 PS1="%(1j.[%j] .)[%T] $PS1"
 
