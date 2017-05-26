@@ -30,7 +30,8 @@ set $black       #282828
 set $darkblack   #1d2021
 set $transparent #00000000
 
-set $Locker "xtrlock"
+# set $Locker "xtrlock"
+set $Locker i3lock -f
 set $Browser "chromium"
 
 set $tag1 " "
@@ -56,8 +57,9 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec gnome-terminal
-# bindsym $mod+Return exec termite
+# bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec termite
+# bindsym $mod+Return exec /home/cameron/.bin/alacritty
 
 # Open a browser
 bindsym $mod+Shift+b exec $Browser
@@ -159,7 +161,7 @@ bindsym $mod+Ctrl+9 move workspace to workspace 9
 # rename workspace 1 to "I"
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-#smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -202,8 +204,8 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-gaps inner 12
-gaps outer 10
+gaps inner 8
+gaps outer 6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -241,7 +243,7 @@ bindsym $mod+r mode "resize"
 set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id pkill xss-lock && i3-msg exit, mode "default"
+    bindsym e exec --no-startup-id pkill $Locker && i3-msg exit, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -342,7 +344,7 @@ bindsym XF86AudioMute exec amixer Master toggle && pkill -RTMIN+2 i3blocks
 #}
 
 # Enable
-set $Locker "xtrlock"
+# set $Locker "xtrlock"
 
 # Floating windows
 for_window [class="etcher"] floating enable move position center
@@ -352,8 +354,9 @@ for_window [class="zoom"] floating disable
 
 # Start applications
 exec --no-startup-id dropbox
-exec --no-startup-id ~/.fehbg
-#exec --no-startup-id ~/.config/wallpaperer /home/cameron/Dropbox/wallpapers/
+# exec --no-startup-id feh --bg-fill ~/Wallpapers/winter.jpg
+# exec --no-startup-id ~/.fehbg
+exec --no-startup-id ~/.config/wallpaperer /home/cameron/Wallpapers/
 exec --no-startup-id dunst -config ~/.dunstrc
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114 -114
 exec --no-startup-id udiskie

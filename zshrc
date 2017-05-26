@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/cameron/.oh-my-zsh
+export ZSH=/home/cameron/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ssh-agent archlinux docker zsh-nvm npm git git-extras pyenv sudo systemd colored-man-pages common-aliases wd extract fancy-ctrl-z)
+plugins=(archlinux docker zsh-nvm npm git git-extras pyenv sudo systemd colored-man-pages common-aliases wd extract fancy-ctrl-z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,6 +118,7 @@ export PATH="$PATH:/home/cameron/.cabal/bin/"
 export PATH="$PATH:/home/cameron/.local/bin/"
 export PATH="$PATH:/home/cameron/.config/scripts/"
 export PATH="$PATH:/home/cameron/.gem/ruby/2.4.0/bin"
+export PATH="$PATH:/home/cameron/.bin/"
 
 # Use clang
 export CXX="/bin/clang++"
@@ -129,3 +130,8 @@ stty -ixon
 # Enable base16 shell
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Vim key bindings
+# bindkey -v

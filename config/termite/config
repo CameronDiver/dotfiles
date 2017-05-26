@@ -2,51 +2,51 @@
 [options]
 #font = Hack 14
 #font = fira mono 15
-font = monaco 10
+font = monaco 12
 mouse_autohide = true
 clickable_url = true
 allow_bold = true
 scrollback_lines = 100000
 
-
 [colors]
-# hard contrast: background = #1d2021
-# neutral background = #282828
-# soft contrast: background = #32302f
-background = #32302f
-foreground = #ebdbb2
-foreground_bold = #ebdbb2
 
-# dark0 + gray
-color0 = #282828
-color8 = #928374
+# special
+foreground      = #c5c8c6
+foreground_bold = #c5c8c6
+cursor          = #c5c8c6
+background      = #09090a
 
-# neutral_red + bright_red
-color1 = #cc241d
-color9 = #fb4934
+# black
+color0  = #282a2e
+color8  = #373b41
 
-# neutral_green + bright_green
-color2 = #98971a
-color10 = #b8bb26
+# red
+color1  = #9d0909
+color9  = #da1d1d
 
-# neutral_yellow + bright_yellow
-color3 = #d79921
-color11 = #fabd2f
+# green
+color2  = #03e020
+color10 = #39a808
 
-# neutral_blue + bright_blue
-color4 = #458588
-color12 = #83a598
+# yellow
+color3  = #d7600c
+color11 = #00ff17
 
-# neutral_purple + bright_purple
-color5 = #b16286
-color13 = #d3869b
+# blue
+color4  = #4287c0
+color12 = #4b80ad
 
-# neutral_aqua + faded_aqua
-color6 = #689d6a
-color14 = #8ec07c
+# magenta
+color5  = #843c9c
+color13 = #d67ef1
 
-# light4 + light1
-color7 = #a89984
-color15 = #ebdbb2
+# cyan
+color6  = #33a447
+color14 = #058e0b
+
+# white
+color7  = #484d53
+color15 = #e7e7e7
+
 
 # vim: ft=dosini cms=#%s

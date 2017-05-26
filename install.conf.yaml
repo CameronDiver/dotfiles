@@ -25,6 +25,15 @@
     ~/.config/nvim/init.vim:
         path: config/nvim/init.vim
         create: true
+    ~/.config/nvim/plugins.vim:
+        path: config/nvim/plugins.vim
+        create: true
+    ~/.config/nvim/pluginConf.vim:
+        path: config/nvim/pluginConf.vim
+        create: true
+    ~/.config/nvim/shortcuts.vim:
+        path: config/nvim/shortcuts.vim
+        create: true
     ~/.config/termite/config:
         path: config/termite/config
         create: true

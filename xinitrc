@@ -38,19 +38,12 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-xrandr --dpi 144
+# xrandr --dpi 144
 
-# Polkit agent - whatever the fuck that is
 pkttyagent &
 lxsession &
-feh --bg-fill ~/Dropbox/wallpapers/woods.jpg
 
 # Custom keycodes
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
-
-# redshift
-redshift &
-#xcompmgr -c &
-# compton -b -c &
 
 exec i3

@@ -41,7 +41,7 @@ keycode  47 = semicolon colon semicolon colon dead_acute dead_doubleacute dead_a
 keycode  48 = apostrophe at apostrophe at dead_circumflex dead_caron dead_circumflex
 keycode  49 = grave bar backslash backslash backslash backslash backslash
 keycode  50 = Shift_L NoSymbol Shift_L
-keycode  51 = numbersign asciitilde backslash backslash backslash backslash backslash
+keycode  51 = numbersign asciitilde bar bar bar bar bar
 keycode  52 = z Z z Z guillemotleft less guillemotleft
 keycode  53 = x X x X guillemotright greater guillemotright
 keycode  54 = c C c C cent copyright cent
@@ -249,5 +249,5 @@ keycode 255 =
 clear lock
 clear control
 add control = Caps_Lock Control_L Control_R
-keycode 66 = Control_L Caps_Lock NoSymbol NoSymbol
-keycode 37 = Control_L Caps_Lock NoSymbol NoSymbol
+keycode 66 = Control_L NoSymbol NoSymbol NoSymbol
+keycode 37 = Control_L NoSymbol NoSymbol NoSymbol
