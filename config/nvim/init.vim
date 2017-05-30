@@ -32,6 +32,10 @@ Plug 'tomtom/tlib_vim', { 'for': 'Haskell'}
 Plug 'MarcWeber/vim-addon-mw-utils', { 'for': 'Haskell'}
 Plug 'godlygeek/tabular', { 'for': 'Haskell'}
 
+" Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Helpers """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -112,7 +116,7 @@ set formatoptions+=o        " Continue comment marker in new lines.
 set textwidth=0             " Hard-wrap long lines as you type them.
 set noerrorbells            " No beeps.
 set modeline                " Enable modeline.
-set esckeys                 " Cursor keys in insert mode.
+" set esckeys                 " Cursor keys in insert mode.
 set linespace=0             " Set line-spacing to minimum.
 set nojoinspaces            " Prevents inserting two spaces after punctuation on a join (J)
 set splitbelow              " Horizontal split below current.
@@ -124,7 +128,7 @@ set magic		    " Use 'magic' patterns (extended regular expressions).
 set undofile		    " Persistant undo
 set relativenumber
 set hidden
-
+set mouse=a
 set rtp+=~/.local/share/nvim/plugged/typescript-tools.vim/
 
 set foldmethod=indent
@@ -237,6 +241,13 @@ let g:ctrlp_custom_ignore = {
 			\}
 
 let g:instant_markdown_slow = 1
+
+let g:workspace_use_devicons = 1
+
+let g:racer_cmd="/home/cameron/.cargo/bin/racer"
+let g:deoplete#sources#rust#racer_binary="/home/cameron/.cargo/bin/racer"
+let g:deoplete#sources#rust#rust_source_path="/home/cameron/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src"
+set omnifunc=syntaxcomplete#Complete
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcuts
