@@ -158,55 +158,17 @@ bindsym $mod+Ctrl+7 move workspace to workspace 7
 bindsym $mod+Ctrl+8 move workspace to workspace 8
 bindsym $mod+Ctrl+9 move workspace to workspace 9
 
-# rename workspace 1 to "I"
-
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+# smart_borders on
 
 
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
 gaps inner 8
 gaps outer 6
-
+#
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -267,40 +229,6 @@ mode "$mode_screen" {
 bindsym $mod+s mode "$mode_screen"
 bindsym XF86Display mode "$mode_screen"
 
-# Save workspaces
-set $mode_save_workspace Save which workspace?
-bindsym $mod+m mode "$mode_save_workspace"
-mode "$mode_save_workspace" {
-	bindsym 1 exec --no-startup-id i3-save-tree --workspace 1 > ~/.config/i3/workspace1.json, mode "default"
-	bindsym 2 exec --no-startup-id i3-save-tree --workspace 2 > ~/.config/i3/workspace2.json, mode "default"
-	bindsym 3 exec --no-startup-id i3-save-tree --workspace 3 > ~/.config/i3/workspace3.json, mode "default"
-	bindsym 4 exec --no-startup-id i3-save-tree --workspace 4 > ~/.config/i3/workspace4.json, mode "default"
-	bindsym 5 exec --no-startup-id i3-save-tree --workspace 5 > ~/.config/i3/workspace5.json, mode "default"
-	bindsym 6 exec --no-startup-id i3-save-tree --workspace 6 > ~/.config/i3/workspace6.json, mode "default"
-	bindsym 7 exec --no-startup-id i3-save-tree --workspace 7 > ~/.config/i3/workspace7.json, mode "default"
-	bindsym 8 exec --no-startup-id i3-save-tree --workspace 8 > ~/.config/i3/workspace8.json, mode "default"
-	bindsym 9 exec --no-startup-id i3-save-tree --workspace 9 > ~/.config/i3/workspace9.json, mode "default"
-
-  #back to normal: Enter or Escape
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-
-}
-
-# set workspace
-set $mode_set_workspace Load which workspace?
-bindsym $mod+o mode "$mode_set_workspace"
-mode "$mode_set_workspace" {
-	bindsym 1 exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace1.json'", mode "default"
-	bindsym 2 exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/workspace2.json'", mode "default"
-	bindsym 7 exec --no-startup-id "i3-msg 'workspace 7; append_layout ~/.config/i3/workspace7.json'", mode "default"
-	bindsym 8 exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/workspace8.json'", mode "default"
-	bindsym 9 exec --no-startup-id "i3-msg 'workspace 9; append_layout ~/.config/i3/workspace9.json'", mode "default"
-
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
 # Network manager stuff
 bindsym $mod+n exec --no-startup-id nmcli_dmenu
 
@@ -352,6 +280,7 @@ for_window [class="etcher"] floating enable move position center
 # Tiled windows
 for_window [class="zoom"] floating disable
 
+exec "setxkbmap -layout gb"
 # Start applications
 exec --no-startup-id dropbox
 # exec --no-startup-id feh --bg-fill ~/Wallpapers/winter.jpg
