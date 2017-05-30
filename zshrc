@@ -112,7 +112,7 @@ alias gprm='git push resin master'
 
 export TERM='xterm-256color'
 alias subl='subl3'
-export PATH="$PATH:`dirname $(nvm which $(nvm current))`"
+# export PATH="$PATH:`dirname $(nvm which $(nvm current))`"
 export PATH="$PATH:/opt/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/bin"
 export PATH="$PATH:/home/cameron/.cabal/bin/"
 export PATH="$PATH:/home/cameron/.local/bin/"
@@ -135,3 +135,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # Vim key bindings
 # bindkey -v
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
