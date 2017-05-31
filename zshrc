@@ -133,5 +133,10 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Exercism completions
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+  . ~/.config/exercism/exercism_completion.zsh
+fi
+
 # Vim key bindings
 # bindkey -v
