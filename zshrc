@@ -112,7 +112,7 @@ alias gprm='git push resin master'
 
 export TERM='xterm-256color'
 alias subl='subl3'
-export PATH="$PATH:`dirname $(nvm which $(nvm current))`"
+# export PATH="$PATH:`dirname $(nvm which $(nvm current))`"
 export PATH="$PATH:/opt/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/bin"
 export PATH="$PATH:/home/cameron/.cabal/bin/"
 export PATH="$PATH:/home/cameron/.local/bin/"
@@ -140,3 +140,16 @@ fi
 
 # Vim key bindings
 # bindkey -v
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Setup ssh-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)" 1> /dev/null
+fi
