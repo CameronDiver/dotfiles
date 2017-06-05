@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux docker zsh-nvm npm git git-extras pyenv sudo systemd colored-man-pages common-aliases wd extract fancy-ctrl-z)
+plugins=(archlinux docker zsh-nvm npm git git-extras pyenv sudo systemd colored-man-pages common-aliases wd extract fancy-ctrl-z zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 

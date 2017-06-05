@@ -305,6 +305,9 @@ imap <silent> <home> <C-o>g<home>
 map <silent> <End> g<End>
 imap <silent> <End> <C-o>g<End>
 
+map j gj
+map k gk
+
 nmap L $
 nmap H ^
 
