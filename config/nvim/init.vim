@@ -53,7 +53,7 @@ Plug 'Yggdroot/indentline'
 Plug 'mileszs/ack.vim'
 
 Plug 'junegunn/vim-easy-align', { 'for': 'markdown' }
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+" Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
@@ -81,7 +81,6 @@ call plug#end()
 set laststatus=2
 
 let mapleader = "\<Space>"
-nnoremap <cr> :nohlsearch<cr><cr>
 
 " Commenting
 let g:NERDSpaceDelims=1
@@ -133,7 +132,8 @@ set rtp+=~/.local/share/nvim/plugged/typescript-tools.vim/
 
 set foldmethod=indent
 
-" let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_default_mappings = 1
 
 " Tabs instead of spaces
 set softtabstop=2
@@ -223,8 +223,6 @@ vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
 
-nmap <Leader>t :NERDTreeToggle<CR>
-
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
@@ -253,30 +251,12 @@ set omnifunc=syntaxcomplete#Complete
 " Shortcuts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Save
-nnoremap <C-s> :w<cr>
-inoremap <C-s> <esc>:w<cr>a
-vnoremap <C-s> <esc>:w<cr>v
-
-" Save and quit
- nnoremap <C-q> :x<cr>
- nnoremap <C-q> <esc>:x<cr>
- vnoremap <C-q> <esc>:x<cr>
-
- " Cut
- vnoremap <C-x> "+d
-
  " Copy
- vnoremap <C-c> "+y
+ vnoremap y "+y
+ nnoremap y "+y
 
  " Paste
- " nnoremap <C-v> "+p$
- " vnoremap <C-v> "+p$
- " inoremap <C-v> <esc>"+pA
-
- " Undo and Redo
- inoremap <C-u> <esc>ui
- inoremap <C-r> <esc><C-r>A
+ nnoremap p "+p
 
  " Next buffer
  nnoremap <Leader>l :bn<cr>
@@ -322,3 +302,47 @@ noremap <Right> <NOP>
 if has('nvim')
 	tnoremap <C-[> <C-\><C-n>
 endif
+
+nnoremap :ve :e ~/.config/nvim/init.vim
+nnoremap :vs :so ~/.config/nvim/init.vim
+
+" Clear highlighting
+nnoremap <C-h> <C-o>:noh<enter>
+inoremap <C-h> <C-o>:noh<enter>
+
+nnoremap <Tab> <C-w><C-w>
+nnoremap <Leader>v <C-w>S
+nnoremap <Leader>V <C-w>v
+
+nnoremap <C-t> :10split<enter>:terminal<enter>
+nnoremap <Leader>t <C-t>
+
+nnoremap <A-Up> 2<C-w>+
+nnoremap <A-Down> 2<C-w>-
+nnoremap <A-Left> 2<C-w><
+nnoremap <A-Right> 2<C-w>>
+
+:autocmd TermOpen * setlocal statusline=%{b:term_title} | nnoremap <buffer> <Leader>q :bd!<enter>
+
+" Typescript tsuquyomi
+nnoremap <C-]> :TsuDefinition<enter>
+nnoremap <C-[> :TsuGoBack<enter>
+
+" gf smart file opening
+augroup suffixes
+	autocmd!
+
+	let jsExts=".js,.ts,.coffee,.json"
+
+	let associations = [
+				\["javascript", jsExts],
+				\["coffeescript", jsExts],
+				\["typescript", jsExts]
+				\]
+
+	for ft in associations
+		execute "autocmd FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
+	endfor
+augroup END
+
+nnoremap - :Explore<cr>
