@@ -4,3 +4,5 @@
 	signingkey = 44DCF0173FC05F0A145B1D1BE76D7ACBEE436E12
 [commit]
 	gpgsign = true
+[alias]
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit

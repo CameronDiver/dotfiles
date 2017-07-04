@@ -36,6 +36,12 @@ Plug 'godlygeek/tabular', { 'for': 'Haskell'}
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
+" Systemd files
+Plug 'Matt-Deacalion/vim-systemd-syntax'
+
+" Kerboscript
+Plug 'tomvanderlee/vim-kerboscript'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Helpers """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -326,7 +332,7 @@ nnoremap <A-Right> 2<C-w>>
 
 " Typescript tsuquyomi
 nnoremap <C-]> :TsuDefinition<enter>
-nnoremap <C-[> :TsuGoBack<enter>
+" nnoremap <C-[> :TsuGoBack<enter>
 
 " gf smart file opening
 augroup suffixes
@@ -346,3 +352,6 @@ augroup suffixes
 augroup END
 
 nnoremap - :Explore<cr>
+
+nnoremap :W<cr> :w<cr>
+nnoremap :Q<cr> :q<cr>
