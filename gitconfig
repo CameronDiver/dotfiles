@@ -1,7 +1,7 @@
 [user]
 	name = Cameron Diver
 	email = cameron@resin.io
-	signingkey = 44DCF0173FC05F0A145B1D1BE76D7ACBEE436E12
+	signingkey = 8E2F6B9F06C160ED0B4ECA9740968281F12927FD
 [commit]
 	gpgsign = true
 [alias]

@@ -41,5 +41,6 @@
         create: true
     ~/.config/polybar/config: config/polybar/config
     ~/.conkyrc: conkyrc
+    ~/.gitconfig: gitconfig
 
 
