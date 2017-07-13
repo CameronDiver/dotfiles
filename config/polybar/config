@@ -51,8 +51,8 @@ font-1 = font awesome:size=12
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = mpd
-modules-right = filesystem xbacklight volume memory cpu wlan eth battery temperature date powermenu
+modules-center = music
+modules-right = time-seattle pkgupdates filesystem volume memory cpu wlan eth temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -197,6 +197,11 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
+[module/time-seattle]
+type = custom/script
+exec = TZ=America/Los_Angeles date +"Sea: %H:%M"
+interval = 30
+
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
@@ -204,7 +209,7 @@ card = intel_backlight
 
 [module/pkgupdates]
 type=custom/script
-exec = checkupdates | wc -l
+exec = echo "Updates: `checkupdates | wc -l`"
 interval = 43200
 
 [module/cpu]
@@ -214,6 +219,13 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage%%
+
+[module/music]
+type = custom/script
+interval = 2
+
+label = %output:0:45:...%
+exec = ~/.config/polybar/mpris.sh
 
 [module/memory]
 type = internal/memory
