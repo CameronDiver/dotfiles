@@ -107,6 +107,15 @@ alias vu='vagrant up'
 alias vssh='vagrant ssh'
 alias vh='vagrant halt'
 
+# use gnome-terminal here as it doesn't throw an error
+function dohere {
+	gnome-terminal -- "zsh -c ${1}"
+}
+
+function here {
+	gnome-terminal .
+}
+
 # resin specific
 alias gprm='git push resin master'
 
@@ -140,8 +149,4 @@ fi
 
 # Vim key bindings
 # bindkey -v
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
