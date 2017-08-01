@@ -220,6 +220,16 @@ mode "$mode_system" {
 }
 bindsym $mod+q mode "$mode_system"
 
+set $song_control_system Next (n), Previous (m), Pause/Play (p)
+mode "$song_control_system" {
+	bindsym n exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", mode "default"
+	bindsym m exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous", mode "default"
+	bindsym p exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause", mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+m mode "$song_control_system"
 
 # choose xrandr screen
 # set $mode_screen Screen (d) dual, (l) laptop

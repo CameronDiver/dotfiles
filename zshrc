@@ -103,7 +103,7 @@ alias node-tree='tree -I node_modules'
 
 alias trash='trash-put'
 
-alias vu='vagrant up'
+alias vu='sudo ip link set up vboxnet0 && vagrant up'
 alias vssh='vagrant ssh'
 alias vh='vagrant halt'
 
