@@ -42,6 +42,9 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 " Kerboscript
 Plug 'tomvanderlee/vim-kerboscript'
 
+" SQL
+Plug 'jonathanfilip/vim-dbext'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Helpers """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

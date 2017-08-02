@@ -42,5 +42,6 @@
     ~/.config/polybar/config: config/polybar/config
     ~/.conkyrc: conkyrc
     ~/.gitconfig: gitconfig
+    ~/.config/dunst/dunstrc: config/dunst/dunstrc
 
 
