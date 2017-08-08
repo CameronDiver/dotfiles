@@ -264,6 +264,10 @@ set omnifunc=syntaxcomplete#Complete
  vnoremap y "+y
  nnoremap y "+y
 
+ " Cut
+ vnoremap d "+d
+ nnoremap d "+d
+
  " Paste
  nnoremap p "+p
 
