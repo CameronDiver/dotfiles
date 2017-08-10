@@ -1,4 +1,5 @@
 AddKeysToAgent yes
+GatewayPorts yes
 
 Host manager.resin.io
     User core
@@ -13,6 +14,8 @@ Host git.resindev.io
     Hostname git.resindev.io
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa
+		StrictHostKeyChecking no
+		UserKnownHostsFile /dev/null
 
 Host ssh.devices.resindev.io
     Port 222

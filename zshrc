@@ -109,7 +109,7 @@ alias trash='trash-put'
 alias vu='sudo ip link set up vboxnet0 && vagrant up'
 alias vssh='vagrant ssh'
 alias vh='vagrant halt'
-
+#
 # use gnome-terminal here as it doesn't throw an error
 function dohere {
 	gnome-terminal -- "zsh -c ${1}"
