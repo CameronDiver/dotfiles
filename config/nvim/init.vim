@@ -67,6 +67,7 @@ Plug 'junegunn/vim-easy-align', { 'for': 'markdown' }
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
 
+Plug 'gilsondev/searchtasks.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Git """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -79,12 +80,20 @@ Plug 'airblade/vim-gitgutter'
 
 " Plug 'trusktr/seti.vim'
 " Plug 'chriskempson/base16-vim'
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
+Plug 'hzchirs/vim-material'
+" Plug 'jackiehluo/vim-material'
 Plug 'bagrat/vim-workspace'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'lifepillar/vim-solarized8'
 
+
 call plug#end()
+
+" Set colour scheme
+set termguicolors
+set background=dark
+colorscheme vim-material
 
 " Always show statusline
 set laststatus=2
@@ -158,9 +167,6 @@ set wildignore+=*.o
 
 let g:indentLine_setConceal = 0
 
-set termguicolors
-set background=dark
-colorscheme flatlandia
 
 set foldlevelstart=99
 " Somehow this macro keeps getting set to something really weird,
@@ -193,7 +199,7 @@ let g:move_key_modifier='C'
 " Setup easy align
 au FileType markdown vmap <Leader>a :EasyAlign*<Bar><Enter>
 
-let g:indent_guides_color_change_percent=30
+let g:indent_guides_color_change_percent=5
 au VimEnter * IndentGuidesEnable
 
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
