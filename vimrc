@@ -12,7 +12,7 @@ let g:gruvbox_italics=1
 let g:gruvbox_contrast_dark='soft'
 let g:airline_theme='gruvbox'
 set laststatus=2
-colorscheme gruvbox
+" colorscheme gruvbox
 
 set t_Co=256
 "set paste
@@ -85,7 +85,7 @@ au BufNewFile,BufRead Dockerfile.template set filetype=dockerfile
 
 
 " switch solarized themes
-call togglebg#map("<F4>")
+" call togglebg#map("<F4>")
 
 
 " enable ctrlp.vim
@@ -95,13 +95,13 @@ let g:ctrlp_custom_ignore = {
 	\}
 
 " start of default statusline
-set statusline=%f\ %h%w%m%r\ 
+set statusline=%f\ %h%w%m%r\
 
-set statusline+=%{fugitive#statusline()}
+" set statusline+=%{fugitive#statusline()}
 
 " Syntastic statusline
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 " end of default statusline (with ruler)
 set statusline+=%=%(%l,%c%V\ %=\ %P%)

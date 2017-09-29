@@ -42,9 +42,6 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 " Kerboscript
 Plug 'tomvanderlee/vim-kerboscript'
 
-" SQL
-Plug 'jonathanfilip/vim-dbext'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Helpers """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -68,6 +65,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
 
 Plug 'gilsondev/searchtasks.vim'
+Plug 'qpkorr/vim-bufkill'
+Plug 'scrooloose/nerdtree'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Git """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -283,8 +282,13 @@ set omnifunc=syntaxcomplete#Complete
  " Previous buffer
  nnoremap <Leader>h :bp<cr>
 
+ " New buffer
+ nnoremap <Leader>n :enew<cr>
+
  " Kill buffer
- nmap <Leader>q :bd<cr>
+ " nmap <Leader>q :bd<cr>
+ " Kil buffer leaving split intact
+nmap <Leader>q :BD<cr>
 
  " Backspace in normal mode -> insert mode
  nmap <BS> i
@@ -341,7 +345,13 @@ nnoremap <A-Down> 2<C-w>-
 nnoremap <A-Left> 2<C-w><
 nnoremap <A-Right> 2<C-w>>
 
+nnoremap <Left> ^
+nnoremap <Right> $
+
 :autocmd TermOpen * setlocal statusline=%{b:term_title} | nnoremap <buffer> <Leader>q :bd!<enter>
+autocmd FileType quickfix setlocal nremap <Leader>q :bd<enter>
+
+nnoremap <Leader>w :NERDTree<cr>
 
 " Typescript tsuquyomi
 nnoremap <C-]> :TsuDefinition<enter>
@@ -368,3 +378,11 @@ nnoremap - :Explore<cr>
 
 nnoremap :W<cr> :w<cr>
 nnoremap :Q<cr> :q<cr>
+
+" Move through camelCase words
+nnoremap <silent><C-Left> :<C-u>call search('\<\<Bar>\U\@<=\u\<Bar>\u\ze\%(\U\&\>\@!\)\<Bar>\%^','bW')<CR>
+nnoremap <silent><C-Right> :<C-u>call search('\<\<Bar>\U\@<=\u\<Bar>\u\ze\%(\U\&\>\@!\)\<Bar>\%$','W')<CR>
+inoremap <silent><C-Left> <C-o>:call search('\<\<Bar>\U\@<=\u\<Bar>\u\ze\%(\U\&\>\@!\)\<Bar>\%^','bW')<CR>
+inoremap <silent><C-Right> <C-o>:call search('\<\<Bar>\U\@<=\u\<Bar>\u\ze\%(\U\&\>\@!\)\<Bar>\%$','W')<CR>
+
+set colorcolumn=80,120

@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux docker zsh-nvm npm git git-extras pyenv sudo systemd colored-man-pages common-aliases wd extract fancy-ctrl-z ssh-agent)
+plugins=(archlinux docker zsh-nvm npm git git-extras pyenv sudo systemd colored-man-pages common-aliases wd extract fancy-ctrl-z ssh-agent zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,6 +118,9 @@ function dohere {
 function here {
 	gnome-terminal .
 }
+
+alias gappend='git commit --amend --reuse-message=HEAD'
+alias gempty='git commit --allow-empty -m "Testing commit"'
 
 # resin specific
 alias gprm='git push resin master'

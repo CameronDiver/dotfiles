@@ -6,3 +6,8 @@
 	gpgsign = true
 [alias]
     tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	d = difftool
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
