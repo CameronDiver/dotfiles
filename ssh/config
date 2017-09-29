@@ -12,6 +12,7 @@ Host manager.resinstaging.io
 Host git.resindev.io
     Port 2222
     Hostname git.resindev.io
+    StrictHostKeyChecking no
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa
 		StrictHostKeyChecking no

@@ -32,6 +32,7 @@ set $transparent #00000000
 
 # set $Locker "xtrlock"
 set $Locker i3lock -f
+# set $Browser "chromium --force-device-scale-factor=0.66"
 set $Browser "chromium"
 
 set $tag1 " "
@@ -321,6 +322,7 @@ exec --no-startup-id udiskie
 exec --no-startup-id xss-lock -- $Locker
 exec --no-startup-id killall -q polybar; while pgrep -x polybar >/dev/null; do sleep 1; done; polybar default &
 exec --no-startup-id albert
+exec --no-startup-id redshift-gtk
 
 exec setxkbmap -option ctrl:nocaps
 

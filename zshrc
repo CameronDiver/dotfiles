@@ -142,6 +142,9 @@ PS1="%(1j.[%j] .)[%T] $PS1"
 
 stty -ixon
 
+export RESIN_DEVENV_CPU=2
+export RESIN_DEVENV_RAM=8096
+
 # Enable base16 shell
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

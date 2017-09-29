@@ -293,8 +293,6 @@ nmap <Leader>q :BD<cr>
  " Backspace in normal mode -> insert mode
  nmap <BS> i
 
- nmap <cr> a<cr>
-
  " jj as Esc
  imap jj <Esc>
 

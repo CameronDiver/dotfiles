@@ -2,8 +2,8 @@
 [options]
 #font = Hack 14
 #font = fira mono 15
-#font = monaco 11
-font = inconsolata 12
+; font = monaco 8
+font = inconsolata 10
 mouse_autohide = true
 clickable_url = true
 allow_bold = true
