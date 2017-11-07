@@ -3,51 +3,79 @@
 #font = Hack 14
 #font = fira mono 15
 ; font = monaco 8
-font = inconsolata 10
+font = Source Code Pro 14
 mouse_autohide = true
 clickable_url = true
 allow_bold = true
 scrollback_lines = 100000
 
+#[colors]
+#
+## special
+#foreground      = #c5c8c6
+#foreground_bold = #c5c8c6
+#cursor          = #c5c8c6
+#background      = #09090a
+#
+## black
+#color0  = #282a2e
+#color8  = #373b41
+#
+## red
+#color1  = #9d0909
+#color9  = #da1d1d
+#
+## green
+#color2  = #03e020
+#color10 = #39a808
+#
+## yellow
+#color3  = #d7600c
+#color11 = #00ff17
+#
+## blue
+#color4  = #4287c0
+#color12 = #4b80ad
+#
+## magenta
+#color5  = #843c9c
+#color13 = #d67ef1
+#
+## cyan
+#color6  = #33a447
+#color14 = #058e0b
+#
+## white
+#color7  = #484d53
+#color15 = #e7e7e7
+
+# Uncomment the following for solarized light
 [colors]
+foreground = #657b83
+foreground_bold = #073642
+#foreground_dim = #888888
+background = #fdf6e3
+cursor = #586e75
 
-# special
-foreground      = #c5c8c6
-foreground_bold = #c5c8c6
-cursor          = #c5c8c6
-background      = #09090a
+# if unset, will reverse foreground and background
+#highlight = #839496
 
-# black
-color0  = #282a2e
-color8  = #373b41
-
-# red
-color1  = #9d0909
-color9  = #da1d1d
-
-# green
-color2  = #03e020
-color10 = #39a808
-
-# yellow
-color3  = #d7600c
-color11 = #00ff17
-
-# blue
-color4  = #4287c0
-color12 = #4b80ad
-
-# magenta
-color5  = #843c9c
-color13 = #d67ef1
-
-# cyan
-color6  = #33a447
-color14 = #058e0b
-
-# white
-color7  = #484d53
-color15 = #e7e7e7
-
+# colors from color0 to color254 can be set
+color0 = #073642
+color1 = #dc322f
+color2 = #859900
+color3 = #b58900
+color4 = #268bd2
+color5 = #d33682
+color6 = #2aa198
+color7 = #eee8d5
+color8 = #002b36
+color9 = #cb4b16
+color10 = #586e75
+color11 = #657b83
+color12 = #839496
+color13 = #6c71c4
+color14 = #93a1a1
+color15 = #fdf6e3
 
 # vim: ft=dosini cms=#%s

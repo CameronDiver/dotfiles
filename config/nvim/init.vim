@@ -16,10 +16,13 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+" Plug 'Quramy/tsuquyomi'
 " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'shougo/vimproc.vim', { 'do': 'make', 'for': 'typescript' }
-" Plug 'mhartington/nvim-typescript', { 'for': 'typescript' }
+Plug 'shougo/vimproc.vim', { 'do': 'make' }
+" " Plug 'mhartington/nvim-typescript', { 'for': 'typescript' }
+" " Don't lazy load as it doesn't work with remote plugins
+Plug 'mhartington/nvim-typescript'
+" " Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 " Python
 Plug 'klen/python-mode', { 'for': 'python' }
@@ -36,21 +39,16 @@ Plug 'godlygeek/tabular', { 'for': 'Haskell'}
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
-" Systemd files
-Plug 'Matt-Deacalion/vim-systemd-syntax'
-
-" Kerboscript
-Plug 'tomvanderlee/vim-kerboscript'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Helpers """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim'
-
+Plug 'easymotion/vim-easymotion'
 Plug 'w0rp/ale'
 
 Plug 'matze/vim-move'
@@ -64,7 +62,7 @@ Plug 'junegunn/vim-easy-align', { 'for': 'markdown' }
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
 
-Plug 'gilsondev/searchtasks.vim'
+" Plug 'gilsondev/searchtasks.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -79,9 +77,11 @@ Plug 'airblade/vim-gitgutter'
 
 " Plug 'trusktr/seti.vim'
 " Plug 'chriskempson/base16-vim'
-" Plug 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 Plug 'hzchirs/vim-material'
 " Plug 'jackiehluo/vim-material'
+Plug 'iCyMind/NeoSolarized'
+Plug 'nightsense/forgotten'
 Plug 'bagrat/vim-workspace'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'lifepillar/vim-solarized8'
@@ -91,8 +91,13 @@ call plug#end()
 
 " Set colour scheme
 set termguicolors
-set background=dark
-colorscheme vim-material
+set background=light
+" colorscheme vim-material
+" colorscheme peaksea
+" colorscheme NeoSolarized
+colorscheme forgotten-light
+" colorscheme mayansmoke
+let g:neosolarized_contrast = "high"
 
 " Always show statusline
 set laststatus=2
@@ -105,6 +110,14 @@ let g:NERDCompactSexyComs=1
 let g:NERDDefaultAlign='left'
 let g:NERDCommentEmptyLines=1
 let g:NERDTrimTrailingWhitespace=1
+" Open NERD tree
+function! StartUp()
+    if 0 == argc()
+        NERDTree
+    end
+endfunction
+
+autocmd VimEnter * call StartUp()
 
 " Strip whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -252,6 +265,13 @@ let g:ctrlp_custom_ignore = {
 			\ 'dir': '\v[\/]\.?(git|node_modules|build)$',
 			\}
 
+" nmap ; :Buffers<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>t :Files<CR>
+" Keep the old ctrlp behaviour
+" nmap <C-p> :Files<CR>
+nmap <Leader>r :Tags<CR>
+
 let g:instant_markdown_slow = 1
 
 let g:workspace_use_devicons = 1
@@ -336,7 +356,6 @@ nnoremap <Leader>v <C-w>S
 nnoremap <Leader>V <C-w>v
 
 nnoremap <C-t> :10split<enter>:terminal<enter>
-nnoremap <Leader>t <C-t>
 
 nnoremap <A-Up> 2<C-w>+
 nnoremap <A-Down> 2<C-w>-
@@ -346,14 +365,10 @@ nnoremap <A-Right> 2<C-w>>
 nnoremap <Left> ^
 nnoremap <Right> $
 
-:autocmd TermOpen * setlocal statusline=%{b:term_title} | nnoremap <buffer> <Leader>q :bd!<enter>
+autocmd TermOpen * setlocal statusline=%{b:term_title} | nnoremap <buffer> <Leader>q :bd!<enter>
 autocmd FileType quickfix setlocal nremap <Leader>q :bd<enter>
 
 nnoremap <Leader>w :NERDTree<cr>
-
-" Typescript tsuquyomi
-nnoremap <C-]> :TsuDefinition<enter>
-" nnoremap <C-[> :TsuGoBack<enter>
 
 " gf smart file opening
 augroup suffixes

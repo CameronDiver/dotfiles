@@ -45,7 +45,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fira sans:size=12;2
+; font-0 = fira sans:size=12;2
+font-0 = source sans pro:size=14
 font-1 = font awesome:size=12
 #font-0 = fixed:pixelsize=10;1
 #font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
@@ -53,7 +54,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = music
-modules-right = time-seattle pkgupdates filesystem volume memory cpu wlan eth temperature date powermenu
+modules-right = time-seattle pkgupdates filesystem volume memory battery cpu wlan eth temperature date powermenu
 
 tray-position = right
 tray-padding = 2

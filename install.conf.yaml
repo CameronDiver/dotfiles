@@ -43,5 +43,6 @@
     ~/.conkyrc: conkyrc
     ~/.gitconfig: gitconfig
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
+    ~/.config/networkmanager-dmenu/config.ini: config/networkmanager-dmenu/config.ini
 
 
