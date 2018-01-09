@@ -21,7 +21,7 @@
     ~/.config/i3blocks:
         path: config/i3blocks/
         create: true
-    ~/.config/nvim/init.vim:
+    ~/.config/nvim/init.vim.old:
         path: config/nvim/init.vim
         create: true
     ~/.config/nvim/plugins.vim:
@@ -44,5 +44,8 @@
     ~/.gitconfig: gitconfig
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/networkmanager-dmenu/config.ini: config/networkmanager-dmenu/config.ini
+    ~/.SpaceVim.d/init.vim: 
+        path: SpaceVim.d/init.vim
+        create: true
 
 
