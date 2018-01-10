@@ -46,4 +46,9 @@ lxsession &
 # Custom keycodes
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
+# set natural scrolling
+xinput set-prop 11 284 1
+# set tap-to-click
+xinput set-prop 11 276 1
+
 exec i3

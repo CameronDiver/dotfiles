@@ -28,7 +28,7 @@ binmode(STDOUT, ":utf8");
 my $t_med = 55;
 my $t_warn = 70;
 my $t_crit = 90;
-my $chip = "";
+my $chip = "coretemp-isa-0000";
 my $temperature = -9999;
 
 sub help {
@@ -70,5 +70,6 @@ if ($temperature >= $t_crit) {
 
 
 print $temperature;
+print "°c";
 
 exit 0;

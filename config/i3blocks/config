@@ -28,21 +28,44 @@ command=~/.config/i3blocks/$BLOCK_NAME
 separator_block_width=10
 markup=pango
 
-border_top=0
-border_left=0
-border_right=0
-border_bottom=0
+# border_top=0
+# border_left=0
+# border_right=0
+# border_bottom=0
+
+
 
 [currentsong]
 separator=true
-command=/home/cameron/.nvm/versions/node/v6.9.1/bin/coffee "/home/cameron/.config/scripts/playerctl-display.coffee"
+command=coffee "/home/cameron/.config/scripts/playerctl-display.coffee"
+interval=10
+
+[pacific-time]
+label=Sea
+command=TZ=":US/Pacific" date '+%H:%M'
 interval=10
 
 [packages]
 command=echo "$(checkupdates | wc -l)/$(pacman -Qq | wc -l) "
-label=
+label= 
 # Once every 12 hours
 interval=43200
+
+[blocks/brightness]
+label=
+interval=5
+
+[blocks/bandwidth]
+instance=wlp4s0;out
+label=
+interval=2
+separator=false
+
+[blocks/bandwidth]
+instance=wlp4s0;in
+label=
+interval=2
+
 
 # Volume indicator
 #
@@ -56,7 +79,7 @@ label= ♪
 #instance=PCM
 interval=once
 signal=2
-border=#FFFFFF
+# border=#FFFFFF
 
 [cpu_usage]
 label= 
@@ -91,6 +114,11 @@ interval=60
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+
+[blocks/ssid]
+interval=60
+separator=false
+
 [iface]
 #instance=wlan0
 color=#00FF00
@@ -122,15 +150,15 @@ interval=10
 #instance=1
 interval=30
 markup=pango
-border_bottom=2
-border=#333333
+# border_bottom=2
+# border=#333333
 
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%Y-%m-%d %H:%M:%S  '
 interval=5
-border=#073642
+# border=#073642
 
 # Generic media player support
 #

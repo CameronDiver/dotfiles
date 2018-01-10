@@ -44,7 +44,6 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim'
@@ -91,11 +90,11 @@ call plug#end()
 
 " Set colour scheme
 set termguicolors
-set background=light
-" colorscheme vim-material
+set background=dark
+colorscheme vim-material
 " colorscheme peaksea
 " colorscheme NeoSolarized
-colorscheme forgotten-light
+" colorscheme forgotten-light
 " colorscheme mayansmoke
 let g:neosolarized_contrast = "high"
 
@@ -110,14 +109,6 @@ let g:NERDCompactSexyComs=1
 let g:NERDDefaultAlign='left'
 let g:NERDCommentEmptyLines=1
 let g:NERDTrimTrailingWhitespace=1
-" Open NERD tree
-function! StartUp()
-    if 0 == argc()
-        NERDTree
-    end
-endfunction
-
-autocmd VimEnter * call StartUp()
 
 " Strip whitespace
 autocmd BufWritePre * :%s/\s\+$//e

@@ -128,12 +128,6 @@ alias gprm='git push resin master'
 export TERM='xterm-256color'
 alias subl='subl3'
 # export PATH="$PATH:`dirname $(nvm which $(nvm current))`"
-export PATH="$PATH:/opt/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/bin"
-export PATH="$PATH:/home/cameron/.cabal/bin/"
-export PATH="$PATH:/home/cameron/.local/bin/"
-export PATH="$PATH:/home/cameron/.config/scripts/"
-export PATH="$PATH:/home/cameron/.gem/ruby/2.4.0/bin"
-export PATH="$PATH:/home/cameron/.bin/"
 
 # Use clang
 export CXX="/bin/clang++"
