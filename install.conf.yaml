@@ -47,5 +47,6 @@
     ~/.SpaceVim.d/init.vim: 
         path: SpaceVim.d/init.vim
         create: true
+    ~/.config/terminator/config: config/terminator/config
 
 
