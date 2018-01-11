@@ -152,5 +152,3 @@ fi
 
 # Vim key bindings
 # bindkey -v
-eval "$(rbenv init -)"
-source ~/oh-my-git/prompt.sh
