@@ -47,7 +47,7 @@ interval=10
 
 [packages]
 command=echo "$(checkupdates | wc -l)/$(pacman -Qq | wc -l) "
-label= 
+label=
 # Once every 12 hours
 interval=43200
 
@@ -56,13 +56,6 @@ label=
 interval=5
 
 [blocks/bandwidth]
-instance=wlp4s0;out
-label=
-interval=2
-separator=false
-
-[blocks/bandwidth]
-instance=wlp4s0;in
 label=
 interval=2
 
@@ -72,7 +65,7 @@ interval=2
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-[volume]
+[blocks/volume]
 #label=
 label= ♪
 #instance=Master
@@ -81,7 +74,7 @@ interval=once
 signal=2
 # border=#FFFFFF
 
-[cpu_usage]
+[blocks/cpu_usage]
 label= 
 interval=10
 separator=false
@@ -89,7 +82,7 @@ separator=false
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-[memory]
+[blocks/memory]
 label=
 separator=false
 interval=30
@@ -99,13 +92,13 @@ interval=30
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-[disk]
+[blocks/disk]
 label=
 #instance=/mnt/data
 interval=30
 separator=false
 
-[disk]
+[blocks/disk]
 label=
 instance=/
 interval=60
@@ -119,13 +112,13 @@ interval=60
 interval=60
 separator=false
 
-[iface]
+[blocks/iface]
 #instance=wlan0
 color=#00FF00
 interval=10
 separator=false
 
-[wifi]
+[blocks/wifi]
 label=
 instance=wlp4s0
 interval=10
@@ -137,7 +130,7 @@ interval=10
 #[load_average]
 #interval=10
 
-[temperature]
+[blocks/temperature]
 #label=TEMP
 interval=10
 
@@ -145,7 +138,7 @@ interval=10
 # Battery indicator
 #
 # The battery instance defaults to 0.
-[battery]
+[blocks/battery]
 #label=⚡
 #instance=1
 interval=30

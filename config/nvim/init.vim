@@ -54,6 +54,7 @@ Plug 'matze/vim-move'
 Plug 'Yggdroot/indentline'
 
 Plug 'mileszs/ack.vim'
+" Plug 'tpope/vim-sleuth'
 
 Plug 'junegunn/vim-easy-align', { 'for': 'markdown' }
 " Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
@@ -102,6 +103,11 @@ let g:neosolarized_contrast = "high"
 set laststatus=2
 
 let mapleader = "\<Space>"
+
+set tabstop=2
+set shiftwidth=2
+set tabstop=2
+set noexpandtab
 
 " Commenting
 let g:NERDSpaceDelims=1
@@ -158,10 +164,10 @@ let g:tsuquyomi_disable_default_mappings = 1
 
 " Tabs instead of spaces
 set softtabstop=2
-set shiftwidth=2
+" set shiftwidth=2
 set tabstop=2
 set autoindent
-set noexpandtab
+" set noexpandtab
 
 set backupdir=~/.config/nvim/backup//,/tmp
 set directory=~/.config/nvim/swap//,/tmp

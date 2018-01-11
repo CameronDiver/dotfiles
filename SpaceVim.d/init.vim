@@ -36,10 +36,10 @@ endif
 if executable('vint')
     call add(g:neomake_vim_enabled_makers, 'vint') 
 endif
-if has('python3')
-    let g:ctrlp_map = ''
-    nnoremap <silent> <C-p> :Denite file_rec<CR>
-endif
+" if has('python3')
+    " let g:ctrlp_map = ''
+    " nnoremap <silent> <C-p> :Denite file_rec<CR>
+" endif
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
 
@@ -58,3 +58,6 @@ nnoremap <C-k> dd2kp
 
 " Setup sidebar
 let g:spacevim_enable_vimfiler_gitstatus = 1
+
+" Ignore node_modules etc
+let g:ctrlp_custom_ignore = 'node_modules\|build\|.git'
