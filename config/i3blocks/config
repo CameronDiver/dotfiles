@@ -37,7 +37,7 @@ markup=pango
 
 [currentsong]
 separator=true
-command=coffee "/home/cameron/.config/scripts/playerctl-display.coffee"
+command=/home/cameron/.nvm/versions/node/v8.9.1/bin/coffee "/home/cameron/.config/scripts/playerctl-display.coffee"
 interval=10
 
 [pacific-time]

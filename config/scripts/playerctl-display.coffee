@@ -1,4 +1,5 @@
-﻿exec = require('child_process').exec
+﻿#!/home/cameron/.nvm/versions/node/v8.9.1/bin/coffee
+exec = require('child_process').exec
 
 exec 'playerctl status', (err, stdout) ->
 	return if err?

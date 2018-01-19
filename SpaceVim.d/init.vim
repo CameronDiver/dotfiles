@@ -60,4 +60,13 @@ nnoremap <C-k> dd2kp
 let g:spacevim_enable_vimfiler_gitstatus = 1
 
 " Ignore node_modules etc
-let g:ctrlp_custom_ignore = 'node_modules\|build\|.git'
+let g:ctrlp_custom_ignore = 'node_modules\|.git'
+
+nnoremap j gj
+nnoremap k gk
+
+vnoremap y "+y
+nnoremap y "+y
+vnoremap d "+d
+nnoremap d "+d
+nnoremap p "+p
