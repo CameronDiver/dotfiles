@@ -150,5 +150,3 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
 
-# Vim key bindings
-# bindkey -v

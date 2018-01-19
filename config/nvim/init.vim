@@ -131,6 +131,7 @@ set listchars=tab:>\ ,space:·,trail:␠
 " " Set up highlighting and spell-checking for markdown files
 au BufNewFile,BufRead *.md set filetype=markdown | set tw=80 | set fo+=t
 au BufNewFile,BufRead Dockerfile.template set filetype=dockerfile
+au BufNewFile,BufRead *.json setlocal expandtab
 
 set whichwrap+=<,>,h,l,[,]  " Move from one line to the next
 set showcmd                 " Show (partial) command in status line.
