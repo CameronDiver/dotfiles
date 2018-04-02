@@ -1,4 +1,5 @@
-﻿#!/home/cameron/.nvm/versions/node/v8.9.1/bin/coffee
+#!/usr/bin/env coffee
+
 exec = require('child_process').exec
 
 exec 'playerctl status', (err, stdout) ->

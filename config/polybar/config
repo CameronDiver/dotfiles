@@ -226,8 +226,8 @@ label = %percentage%%
 type = custom/script
 interval = 2
 
-label = %output:0:45:...%
-exec = ~/.config/polybar/mpris.sh
+; label = %output:0:45:...%
+exec = /home/cameron/.nvm/versions/node/v7.10.1/bin/coffee ~/.config/scripts/playerctl-display.coffee
 
 [module/memory]
 type = internal/memory

@@ -36,11 +36,11 @@ markup=pango
 
 
 [currentsong]
-separator=true
-command=/home/cameron/.nvm/versions/node/v8.9.1/bin/coffee "/home/cameron/.config/scripts/playerctl-display.coffee"
+command=echo "lol"; coffee ~/.config/scripts/playerctl-display.coffee
 interval=10
 
 [pacific-time]
+separator=true
 label=Sea
 command=TZ=":US/Pacific" date '+%H:%M'
 interval=10

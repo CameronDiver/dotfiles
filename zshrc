@@ -7,7 +7,9 @@ export ZSH=/home/cameron/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+POWERLEVEL9K_MODE='awesome-fontconfig'
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -132,7 +134,7 @@ alias subl='subl3'
 # Use clang
 export CXX="/bin/clang++"
 
-PS1="%(1j.[%j] .)[%T] $PS1"
+# PS1="%(1j.[%j] .)[%T] $PS1"
 
 stty -ixon
 
@@ -150,3 +152,14 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
 
+fpath=($fpath "/home/cameron/.zfunctions")
+
+# Setup prompt
+
+zsh_uptime() {
+	echo -n `uptime -p`
+}
+POWERLEVEL9K_CUSTOM_UPTIME="zsh_uptime"
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(background_jobs context history time vcs ram disk_usage custom_uptime newline dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery dir_writable)
