@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+var Shell = require('@eddieajau/shell');
+var _ = require('lodash');
+var Promise = require('bluebird');
+
+var fn = () => {
+	Shell.exec('xinput', [])
+	.then((result) => {
+		id = result.stdout[0].split('\n').filter((line) =>
+			line.indexOf('Synaptic') > 1
+		)[0]
+		.match(/id=(\d+)/)[1]
+
+		return id;
+	})
+	.then((id) => {
+		Promise.mapSeries([
+			[ 'xinput', [ 'set-prop', id, '283', '1' ] ],
+			[ 'xinput', [ 'set-prop', id, '281', '1' ] ],
+			[ 'xinput', [ 'set-prop', id, '273', '1' ] ],
+			[ 'xinput', [ 'set-prop', id, '275', '1' ] ],
+			[ 'setxkbmap', [ '-layout', 'us', '-option', 'ctrl:nocaps' ] ]
+		], ([c, a]) => Shell.exec(c, a));
+	});
+}
+
+setInterval(fn, 30000);
+fn();
