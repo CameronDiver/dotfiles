@@ -7,5 +7,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:dirname $(nvm which `nvm current`)"
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec startx
+	exec startx
 fi

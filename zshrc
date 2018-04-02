@@ -112,11 +112,11 @@ alias vh='vagrant halt'
 #
 # use gnome-terminal here as it doesn't throw an error
 function dohere {
-	gnome-terminal -- "zsh -c ${1}"
+	alacritty -- "zsh -c ${1}"
 }
 
 function here {
-	gnome-terminal .
+	alacritty .
 }
 
 alias gappend='git commit --amend --reuse-message=HEAD'
@@ -128,6 +128,8 @@ alias gprm='git push resin master'
 export TERM='xterm-256color'
 alias subl='subl3'
 # export PATH="$PATH:`dirname $(nvm which $(nvm current))`"
+
+alias install='yain --noconfirm'
 
 # Use clang
 export CXX="/bin/clang++"
@@ -150,3 +152,9 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -r $HOME/.rvm/scripts/completion ]] && . $HOME/.rvm/scripts/completion
+
+alias cp='pycp'

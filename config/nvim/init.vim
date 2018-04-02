@@ -28,12 +28,12 @@ Plug 'mhartington/nvim-typescript'
 Plug 'klen/python-mode', { 'for': 'python' }
 
 " Haskell
-Plug 'neovimhaskell/haskell-vim', { 'for': 'Haskell'}
-Plug 'eagletmt/ghcmod-vim', { 'for': 'Haskell'}
-Plug 'eagletmt/neco-ghc', { 'for': 'Haskell'}
-Plug 'tomtom/tlib_vim', { 'for': 'Haskell'}
-Plug 'MarcWeber/vim-addon-mw-utils', { 'for': 'Haskell'}
-Plug 'godlygeek/tabular', { 'for': 'Haskell'}
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell'}
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell'}
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell'}
+Plug 'tomtom/tlib_vim', { 'for': 'haskell'}
+Plug 'MarcWeber/vim-addon-mw-utils', { 'for': 'haskell'}
+Plug 'godlygeek/tabular', { 'for': 'haskell'}
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -82,17 +82,26 @@ Plug 'hzchirs/vim-material'
 " Plug 'jackiehluo/vim-material'
 Plug 'iCyMind/NeoSolarized'
 Plug 'nightsense/forgotten'
-Plug 'bagrat/vim-workspace'
+Plug 'jdkanani/vim-material-theme'
+" Plug 'bagrat/vim-workspace'
 Plug 'ryanoasis/vim-devicons'
-" Plug 'lifepillar/vim-solarized8'
-
+"Plug 'lifepillar/vim-solarized8'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+if !exists("g:gui_oni")
+    Plug 'mhinz/vim-startify'
+	Plug 'powerline/powerline'
+endif
 
 call plug#end()
 
 " Set colour scheme
 set termguicolors
 set background=dark
+" set background=dark
 colorscheme vim-material
+" colorscheme material-theme
 " colorscheme peaksea
 " colorscheme NeoSolarized
 " colorscheme forgotten-light
@@ -122,9 +131,18 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Re-load
 autocmd BufEnter,FocusGained * checktime
 
-set listchars=tab:>\ ,space:·,trail:␠
+" Open NERDTree when no files are provided
+if !exists("g:gui_oni")
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+endif
+
+" Close vim when the only window is the nerd tree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+set listchars=tab:>\ ,space:\ ,trail:·
+set list
 " set listchars=tab:>\ ,trail:␠
-" set list
 " hi SpecialKey guifg=#d8a080 ctermfg=3 ctermbg=6
 
 " File types
@@ -132,6 +150,7 @@ set listchars=tab:>\ ,space:·,trail:␠
 au BufNewFile,BufRead *.md set filetype=markdown | set tw=80 | set fo+=t
 au BufNewFile,BufRead Dockerfile.template set filetype=dockerfile
 au BufNewFile,BufRead *.json setlocal expandtab
+au BufNewFile,BufRead *.hs setlocal expandtab
 
 set whichwrap+=<,>,h,l,[,]  " Move from one line to the next
 set showcmd                 " Show (partial) command in status line.
@@ -209,34 +228,59 @@ let g:move_key_modifier='C'
 " Setup easy align
 au FileType markdown vmap <Leader>a :EasyAlign*<Bar><Enter>
 
-let g:indent_guides_color_change_percent=5
-au VimEnter * IndentGuidesEnable
 
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
-" Left hand side, filename, modified status, type
-set statusline=%f\ %y
-set statusline+=\ %m\ %=
-" Also add the current git branch
-set statusline+=%{fugitive#statusline()}
-" Right hand side: ALE message, line number, total
-set statusline+=\ Line:\ %l/%L\ Col:\ %c\ -
-set statusline+=\ Ale:\ %{ALEGetStatusLine()}\ |
+if !exists("g:gui_oni")
 
-hi StatusLine ctermbg=0 guibg=#515151
+	let g:indent_guides_color_change_percent=5
+	au VimEnter * IndentGuidesEnable
 
-" au InsertEnter * hi StatusLine ctermbg=5 guibg=DarkOliveGreen
-" au InsertEnter * hi StatusLine ctermbg=5 guibg=#6681AA
-au InsertEnter * hi StatusLine ctermbg=5 guibg=#5724B1
-au InsertLeave * hi StatusLine ctermbg=0 guibg=#515151
+	" Left hand side, filename, modified status, type
+	set statusline=%f\ %y
+	set statusline+=\ %m\ %=
+	" Also add the current git branch
+	set statusline+=%{fugitive#statusline()}
+	" Right hand side: ALE message, line number, total
+	set statusline+=\ Line:\ %l/%L\ Col:\ %c\ -
+	set statusline+=\ Ale:\ %{ALEGetStatusLine()}\ |
+
+	hi StatusLine ctermbg=0 guibg=#515151
+
+	" au InsertEnter * hi StatusLine ctermbg=5 guibg=DarkOliveGreen
+	" au InsertEnter * hi StatusLine ctermbg=5 guibg=#6681AA
+	au InsertEnter * hi StatusLine ctermbg=5 guibg=#5724B1
+	au InsertLeave * hi StatusLine ctermbg=0 guibg=#515151
+
+	let g:SuperTabDefaultCompletionType = '<C-x><C-o>'
+	inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+
+	" Use deoplete.
+	let g:deoplete#enable_at_startup = 1
+
+	let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+	let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+	let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+	let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+	let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+	let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+	let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+	let g:workspace_use_devicons = 1
+
+	let g:racer_cmd="/home/cameron/.cargo/bin/racer"
+	let g:deoplete#sources#rust#racer_binary="/home/cameron/.cargo/bin/racer"
+	let g:deoplete#sources#rust#rust_source_path="/home/cameron/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src"
+	set omnifunc=syntaxcomplete#Complete
+
+	set mouse=a
+endif
 
 map <silent> tw :GhcModTypeInsert<CR>
 map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
-let g:SuperTabDefaultCompletionType = '<C-x><C-o>'
-inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
 
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
@@ -247,17 +291,6 @@ let g:haskell_tabular = 1
 vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
-
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 let g:ctrlp_custom_ignore = {
 			\ 'dir': '\v[\/]\.?(git|node_modules|build)$',
@@ -271,13 +304,6 @@ nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
 
 let g:instant_markdown_slow = 1
-
-let g:workspace_use_devicons = 1
-
-let g:racer_cmd="/home/cameron/.cargo/bin/racer"
-let g:deoplete#sources#rust#racer_binary="/home/cameron/.cargo/bin/racer"
-let g:deoplete#sources#rust#rust_source_path="/home/cameron/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src"
-set omnifunc=syntaxcomplete#Complete
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcuts
@@ -397,3 +423,8 @@ inoremap <silent><C-Left> <C-o>:call search('\<\<Bar>\U\@<=\u\<Bar>\u\ze\%(\U\&\
 inoremap <silent><C-Right> <C-o>:call search('\<\<Bar>\U\@<=\u\<Bar>\u\ze\%(\U\&\>\@!\)\<Bar>\%$','W')<CR>
 
 set colorcolumn=80,120
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#fnamemod=':~:.'
+let g:airline#extensions#tabline#fnamecollapse = 1

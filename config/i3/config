@@ -61,7 +61,8 @@ floating_modifier $mod
 #bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec gnome-terminal
 # bindsym $mod+Return exec /home/cameron/.bin/alacritty
-bindsym $mod+Return exec terminator
+# bindsym $mod+Return exec terminator
+bindsym $mod+Return exec alacritty
 
 # Open a browser
 bindsym $mod+Shift+b exec $Browser
@@ -81,6 +82,7 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun
+bindsym $mod+g exec --no-startup-id rofi -modi run -show run
 
 # change focus
 bindsym $mod+j focus left
@@ -317,7 +319,7 @@ for_window [class="Opera"] move window to workspace 9:Home;
 for_window [class="Spotify"] move window to workspace 4:Music;
 
 exec --no-startup-id mailspring
-exec --no-startup-id opera
+# exec --no-startup-id opera
 exec --no-startup-id spotify
 
 # Remove borders
