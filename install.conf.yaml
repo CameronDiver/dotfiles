@@ -1,6 +1,7 @@
 - clean: ['~']
 
 - link:
+    ~/.oni: oni
     ~/.profile: profile
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
@@ -35,7 +36,7 @@
     ~/.gitconfig: gitconfig
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/networkmanager-dmenu/config.ini: config/networkmanager-dmenu/config.ini
-    ~/.SpaceVim.d/init.vim: 
+    ~/.SpaceVim.d/init.vim:
         path: SpaceVim.d/init.vim
         create: true
     ~/.config/terminator/config: config/terminator/config
